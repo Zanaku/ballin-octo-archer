@@ -5,6 +5,7 @@ package boa;
 import java.util.Random;
 import java.util.Scanner;
 
+import boa.domain.Creature;
 import boa.domain.Player;
 
 /******************************************************************************/
@@ -56,7 +57,13 @@ public class BallinOctoArcher {
 	public void start() {
 		this.printWelcome();
 		this.createCharacter();
-		this.printPlayer();		
+		this.printPlayer();	
+		
+		Creature c = new Creature("Assmaster", 1);
+		c.getStatusPoints().setHealth(5);
+		
+		Fight f = new Fight(this.player, c);
+		f.fight();
 	}
 	
 	/**************************************************************************/

@@ -6,6 +6,7 @@ public class Creature {
 	private String name;
 	private int level;
 	private StatusPoints statusPoints;
+	private ConditionPoints conditionPoints;
 	
 	/**************************************************************************/
 	
@@ -13,6 +14,7 @@ public class Creature {
 		this.name = name;
 		this.level = level;
 		this.statusPoints = new StatusPoints();
+		this.conditionPoints = new ConditionPoints(this);
 	}
 	
 	/**************************************************************************/
@@ -32,4 +34,7 @@ public class Creature {
 	/**************************************************************************/
 
 	public StatusPoints getStatusPoints() { return this.statusPoints; }
+	public ConditionPoints getConditionPoints() {
+		return this.conditionPoints;
+	}
 }
