@@ -35,4 +35,18 @@ public class StatusPoints {
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
+	
+	/**************************************************************************/
+
+	public String toString() {
+		return String.format(
+				"Health: %d\n" +
+				"Defence: %d\n" +
+				"Strength: %d\n" +
+				"Speed: %d",
+				this.getHealth(),
+				this.getDefence(),
+				this.getStrength(),
+				this.getSpeed());
+	}
 }

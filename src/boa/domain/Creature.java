@@ -28,4 +28,8 @@ public class Creature {
 	public void setLevel(int level) {
 		this.level = level;
 	}
+	
+	/**************************************************************************/
+
+	public StatusPoints getStatusPoints() { return this.statusPoints; }
 }

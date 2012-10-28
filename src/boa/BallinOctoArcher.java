@@ -1,8 +1,69 @@
 package boa;
 
+/******************************************************************************/
+
+import java.util.Random;
+import java.util.Scanner;
+
+import boa.domain.Player;
+
+/******************************************************************************/
+
 public class BallinOctoArcher {
+	private Player player;
+	
+	/**************************************************************************/
+
+	public void printWelcome()
+	{
+		System.out.println(
+				"===================================\n" +
+				"= Welcome to Ballin-Octo-Archter! =\n" +
+				"===================================\n" +
+				"\n");
+	}
+	
+	public void printPlayer()
+	{
+		System.out.println(this.player.toString());	
+	}
+	
+	/**************************************************************************/
+
+	public void createCharacter()
+	{
+		Scanner s = new Scanner(System.in);
+		
+		System.out.print("Enter your character's name: ");
+		String characterName = s.nextLine();
+		System.out.println();
+		
+		this.player = new Player(characterName);
+		
+		this.generateStats();
+	}
+	
+	public void generateStats()
+	{
+		Random r = new Random();
+		
+		this.player.getStatusPoints().setHealth(r.nextInt(9) + 1);
+		this.player.getStatusPoints().setStrength(r.nextInt(9) + 1);
+		this.player.getStatusPoints().setDefence(r.nextInt(9) + 1);
+		this.player.getStatusPoints().setSpeed(r.nextInt(9) + 1);
+	}
+	
+	public void start() {
+		this.printWelcome();
+		this.createCharacter();
+		this.printPlayer();		
+	}
+	
+	/**************************************************************************/
+
 	public static void main(String[] args)
 	{
-		System.out.println("Hello, word!");
+		BallinOctoArcher b = new BallinOctoArcher();
+		b.start();
 	}
 }
