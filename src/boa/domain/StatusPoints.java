@@ -3,10 +3,10 @@ package boa.domain;
 /******************************************************************************/
 
 public class StatusPoints {
-	private int health = 1;
-	private int strength = 1;
-	private int defence = 1;
-	private int speed = 1;
+	private int health = 1; //THIS IS UR GOODS
+	private int strength = 1; //THIS IS UR STRONGS
+	private int defence = 1; //THIS UR BEEF
+	private int speed = 1; //THIS IS UR RUNS
 	
 	/**************************************************************************/
 
