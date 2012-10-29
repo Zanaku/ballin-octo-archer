@@ -4,7 +4,7 @@ package boa.domain;
 
 public class StatusPoints {
 	private int health = 1; //THIS IS UR GOODS
-	private int strength = 1; //THIS IS UR STRONGS
+	private int attack = 1; //THIS IS UR STRONGS
 	private int defence = 1; //THIS UR BEEF
 	private int speed = 1; //THIS IS UR RUNS
 	
@@ -17,9 +17,9 @@ public class StatusPoints {
 	
 	/**************************************************************************/
 
-	public int getStrength() { return this.strength; }
-	public void setStrength(int strength) {
-		this.strength = strength;
+	public int getAttack() { return this.attack; }
+	public void setAttack(int attack) {
+		this.attack = attack;
 	}
 	
 	/**************************************************************************/
@@ -41,12 +41,12 @@ public class StatusPoints {
 	public String toString() {
 		return String.format(
 				"Health: %d\n" +
-				"Defence: %d\n" +
+				"Attack: %d\n" +
 				"Strength: %d\n" +
 				"Speed: %d",
 				this.getHealth(),
 				this.getDefence(),
-				this.getStrength(),
+				this.getAttack(),
 				this.getSpeed());
 	}
 }

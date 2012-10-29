@@ -49,7 +49,7 @@ public class BallinOctoArcher {
 		Random r = new Random();
 		
 		this.player.getStatusPoints().setHealth(r.nextInt(9) + 1);
-		this.player.getStatusPoints().setStrength(r.nextInt(9) + 1);
+		this.player.getStatusPoints().setAttack(r.nextInt(9) + 1);
 		this.player.getStatusPoints().setDefence(r.nextInt(9) + 1);
 		this.player.getStatusPoints().setSpeed(r.nextInt(9) + 1);
 	}

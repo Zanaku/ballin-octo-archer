@@ -27,18 +27,18 @@ public class Fight {
 				System.out.println("Player's turn");
 				
 				creature.getConditionPoints().decreaseHealth(
-						player.getStatusPoints().getStrength());
+						player.getStatusPoints().getAttack());
 				
 				System.out.println("Creature takes " + 
-						player.getStatusPoints().getStrength() + " damage");
+						player.getStatusPoints().getAttack() + " damage");
 			} else { // creature's turn
 				System.out.println("Creature's turn");
 				
 				player.getConditionPoints().decreaseHealth(
-						creature.getStatusPoints().getStrength());
+						creature.getStatusPoints().getAttack());
 				
 				System.out.println("Player takes " + 
-						creature.getStatusPoints().getStrength() + " damage");
+						creature.getStatusPoints().getAttack() + " damage");
 			}
 			
 			System.out.println();
