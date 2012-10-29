@@ -41,8 +41,8 @@ public class StatusPoints {
 	public String toString() {
 		return String.format(
 				"Health: %d\n" +
+				"Defence: %d\n" +
 				"Attack: %d\n" +
-				"Strength: %d\n" +
 				"Speed: %d",
 				this.getHealth(),
 				this.getDefence(),
