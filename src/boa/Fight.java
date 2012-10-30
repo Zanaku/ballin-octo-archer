@@ -24,27 +24,27 @@ public class Fight {
 		while (player.getConditionPoints().getHealth() > 0 &&
 				creature.getConditionPoints().getHealth() > 0) {
 			if (turn) { // player's turn
-				System.out.println("Player's turn");
+				System.out.println(player.getName()+"'s turn");
 				
 				creature.getConditionPoints().decreaseHealth(
 						player.getStatusPoints().getAttack());
 				
-				System.out.println("Creature takes " + 
+				System.out.println(creature.getName() + " takes " + 
 						player.getStatusPoints().getAttack() + " damage");
 			} else { // creature's turn
-				System.out.println("Creature's turn");
+				System.out.println(creature.getName()+"'s turn");
 				
 				player.getConditionPoints().decreaseHealth(
 						creature.getStatusPoints().getAttack());
 				
-				System.out.println("Player takes " + 
+				System.out.println(creature.getName() + " takes " + 
 						creature.getStatusPoints().getAttack() + " damage");
 			}
 			
 			System.out.println();
-			System.out.println("Player HP: " +
+			System.out.println(player.getName()+"'s HP: " +
 					player.getConditionPoints().getHealth());
-			System.out.println("Creature HP: " +
+			System.out.println(creature.getName()+"'s HP: " +
 					creature.getConditionPoints().getHealth());
 			
 			turn = !turn;
