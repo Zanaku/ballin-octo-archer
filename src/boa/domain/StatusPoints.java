@@ -1,52 +1,79 @@
 package boa.domain;
 
-/******************************************************************************/
-
+/**
+ * A structure representing the status points of some creature entity.
+ */
 public class StatusPoints {
-	private int health = 1; //THIS IS UR GOODS
-	private int attack = 1; //THIS IS UR STRONGS
-	private int defence = 1; //THIS UR BEEF
-	private int speed = 1; //THIS IS UR RUNS
-	
-	/**************************************************************************/
+    private int health;
+    private int attack;
+    private int defence;
+    private int speed;
 
-	public int getHealth() { return this.health; }
-	public void setHealth(int health) {
-		this.health = health;
-	}
-	
-	/**************************************************************************/
+    /**
+     * Creates this structure with all points set to 1.
+     */
+    public StatusPoints() {
+        this.health = 1;
+        this.attack = 1;
+        this.defence = 1;
+        this.speed = 1;
+    }
 
-	public int getAttack() { return this.attack; }
-	public void setAttack(int attack) {
-		this.attack = attack;
-	}
-	
-	/**************************************************************************/
+    /**
+     * Creates this structure using the specified values.
+     * @param health Health
+     * @param attack Attack
+     * @param defence Defence
+     * @param speed Speed
+     */
+    public StatusPoints(final int health, final int attack, final int defence,
+            final int speed) {
+        this.health = health;
+        this.attack = attack;
+        this.defence = defence;
+        this.speed = speed;
+    }
 
-	public int getDefence() { return this.defence; }
-	public void setDefence(int defence) {
-		this.defence = defence;
-	}
-	
-	/**************************************************************************/
+    /**
+     * Creatures this structure by copying an existing status point structure.
+     * @param s Status point structure to be copied
+     */
+    public StatusPoints(final StatusPoints s) {
+        this.attack = s.getAttack();
+        this.health = s.getHealth();
+        this.defence = s.getDefence();
+        this.speed = s.getSpeed();
+    }
 
-	public int getSpeed() {	return this.speed; }
-	public void setSpeed(int speed) {
-		this.speed = speed;
-	}
-	
-	/**************************************************************************/
+    /**
+     * Returns the health status point of this structure.
+     * @return Health
+     */
+    public final int getHealth() {
+        return this.health;
+    }
 
-	public String toString() {
-		return String.format(
-				"Health: %d\n" +
-				"Defence: %d\n" +
-				"Attack: %d\n" +
-				"Speed: %d",
-				this.getHealth(),
-				this.getDefence(),
-				this.getAttack(),
-				this.getSpeed());
-	}
+    /**
+     * Returns the attack status point of this structure.
+     * @return Attack
+     */
+    public final int getAttack() {
+        return this.attack;
+    }
+
+    /**
+     * Returns the defence status point of this structure.
+     * @return Defence
+     */
+    public final int getDefence() {
+        return this.defence;
+    }
+
+    /**
+     * Returns the speed status point of this structure.
+     * @return Speed
+     */
+    public final int getSpeed() {
+        return this.speed;
+    }
 }
