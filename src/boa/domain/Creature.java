@@ -12,9 +12,14 @@ public class Creature {
     /**
      * Creates this creature with the specified name and level.
      * @param name Name of creature
-     * @param level Level of creature
+     * @param level Level of creature. Must be a non-zero positive integer.
      */
     public Creature(final String name, final int level) {
+        if (level <= 0) {
+            throw new IllegalArgumentException(
+                    "Level must be non-zero and positive.");
+        }
+
         this.name = name;
         this.level = level;
         this.statusPoints = new StatusPoints();
@@ -44,6 +49,11 @@ public class Creature {
      * @param level Level of creature
      */
     protected final void setLevel(final int level) {
+        if (level <= 0) {
+            throw new IllegalArgumentException(
+                    "Level must be non-zero and positive.");
+        }
+
         this.level = level;
     }
 
@@ -56,11 +66,11 @@ public class Creature {
     }
 
     /**
-     * Sets this creature's status points to the specified instance.
+     * Sets this creature's status points to a copy of the specified instance.
      * @param s Creature's status points to be used
      */
-    protected final void setStatusPoints(final StatusPoints s) {
-        this.statusPoints = s;
+    public final void setStatusPoints(final StatusPoints s) {
+        this.statusPoints = new StatusPoints(s);
     }
 
     /**

@@ -9,19 +9,24 @@ public class ConditionPoints {
     private int health;
 
     /**
-     * Creates this structure with maximum health set to zero. Not much use that
-     * now, is it? Silly sausage.
+     * Creates this structure with maximum health set to 1.
      */
     public ConditionPoints() {
-        this.maximumHealth = 0;
+        this.maximumHealth = 1;
         this.health = maximumHealth;
     }
 
     /**
      * Creates this structure with the specified maximum health.
-     * @param maximumHealth Maximum health of the attached creature
+     * @param maximumHealth Maximum health of the creature. Must be a non-zero
+     *            positive number.
      */
     public ConditionPoints(final int maximumHealth) {
+        if (maximumHealth <= 0) {
+            throw new IllegalArgumentException(
+                    "Maximum health must be a positive non-zero number.");
+        }
+
         this.maximumHealth = maximumHealth;
         this.health = this.maximumHealth;
     }
@@ -29,10 +34,20 @@ public class ConditionPoints {
     /**
      * Creates this structure with the specified maximum health and current
      * health.
-     * @param maximumHealth Maximum health of the creature
-     * @param health Current health of the creature
+     * @param maximumHealth Maximum health of the creature. Must be a non-zero
+     *            positive number.
+     * @param health Current health of the creature. Must be a positive
+     *            number.
      */
     public ConditionPoints(final int maximumHealth, final int health) {
+        if (maximumHealth <= 0) {
+            throw new IllegalArgumentException(
+                    "Maximum health must be a positive non-zero number.");
+        } else if (health < 0) {
+            throw new IllegalArgumentException(
+                    "Health must be a positive number.");
+        }
+
         this.maximumHealth = maximumHealth;
         this.health = health;
     }
