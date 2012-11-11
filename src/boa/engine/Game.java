@@ -4,17 +4,17 @@ import java.util.EnumMap;
 import java.util.Map;
 
 public abstract class Game<T extends Game<T, K>, K extends Enum<K>> {
-    private Class<K> stateEnumClass;
+    private Class<K> stateClass;
 
-    private K currenState;
+    private K currentState;
     private Map<K, GameController<T, K>> stateControllers;
 
-    public Game(final Class<K> stateEnumClass) {
-        this.stateEnumClass = stateEnumClass;
+    public Game(final Class<K> stateClass) {
+        this.stateClass = stateClass;
 
-        this.currenState = null;
+        this.currentState = null;
         this.stateControllers = new EnumMap<K, GameController<T, K>>(
-                this.stateEnumClass);
+                this.stateClass);
     }
 
     public abstract void start();
@@ -30,11 +30,11 @@ public abstract class Game<T extends Game<T, K>, K extends Enum<K>> {
                     "State #%s does not exist.", state.toString()));
         }
 
-        if (this.currenState != null) {
-            this.stateControllers.get(state).stop();
+        if (this.currentState != null) {
+            this.stateControllers.get(this.currentState).stop();
         }
 
-        this.currenState = state;
+        this.currentState = state;
         this.stateControllers.get(state).start();
     }
 }
