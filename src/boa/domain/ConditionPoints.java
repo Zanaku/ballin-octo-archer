@@ -4,7 +4,7 @@ package boa.domain;
  * A structure used to hold the current condition points of a particular
  * creature.
  */
-public class ConditionPoints {
+public final class ConditionPoints {
     private int maximumHealth;
     private int health;
 
@@ -64,7 +64,7 @@ public class ConditionPoints {
      * Returns the maximum health of the creature.
      * @return Maximum health of the creature
      */
-    public final int getMaximumHealth() {
+    public int getMaximumHealth() {
         return this.maximumHealth;
     }
 
@@ -72,7 +72,7 @@ public class ConditionPoints {
      * Returns the current health of the creature.
      * @return Current health of the creature
      */
-    public final int getHealth() {
+    public int getHealth() {
         return this.health;
     }
 
@@ -81,7 +81,7 @@ public class ConditionPoints {
      * will clamp the health to the maximum and minimum possible.
      * @param amount Amount to increase health by
      */
-    public final void increaseHealth(final int amount) {
+    public void increaseHealth(final int amount) {
         this.health += amount;
         this.clampHealth();
     }
@@ -91,7 +91,7 @@ public class ConditionPoints {
      * will clamp the health to the maximum and minimum possible.
      * @param amount Amount to decrease health by
      */
-    public final void decreaseHealth(final int amount) {
+    public void decreaseHealth(final int amount) {
         this.health -= amount;
         this.clampHealth();
     }

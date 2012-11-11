@@ -3,7 +3,7 @@ package boa.domain;
 /**
  * Represents a user-controlled player.
  */
-public class Player extends Creature {
+public final class Player extends Creature {
     private int experience;
 
     /**
@@ -21,7 +21,7 @@ public class Player extends Creature {
      * gained at this level.
      * @return Current number of experience points that this player has
      */
-    public final int getExperience() {
+    public int getExperience() {
         return this.experience;
     }
 
@@ -32,7 +32,7 @@ public class Player extends Creature {
      * @param amount Amount of experience to increase this player's experience
      *            points by.
      */
-    public final void increaseExperience(final int amount) {
+    public void increaseExperience(final int amount) {
         this.experience += experience;
 
         if (this.experience >= this.getExperienceNeeded()) {
@@ -48,7 +48,7 @@ public class Player extends Creature {
      * player's current level.
      * @return Experience required to level up at this player's current level
      */
-    public final int getExperienceNeeded() {
+    public int getExperienceNeeded() {
         return getExperienceNeeded(this.getLevel());
     }
 
@@ -61,7 +61,7 @@ public class Player extends Creature {
      * @param level Level at which to calculate the experience needed
      * @return Experience required to level up at the specified level
      */
-    public final int getExperienceNeeded(final int level) {
+    public int getExperienceNeeded(final int level) {
         final int multiplier = 10;
 
         return multiplier * level;

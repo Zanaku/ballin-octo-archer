@@ -3,7 +3,7 @@ package boa.domain;
 /**
  * A structure representing the status points of some creature entity.
  */
-public class StatusPoints {
+public final class StatusPoints {
     private int health;
     private int attack;
     private int defence;
@@ -63,7 +63,7 @@ public class StatusPoints {
      * Returns the health status point of this structure.
      * @return Health
      */
-    public final int getHealth() {
+    public int getHealth() {
         return this.health;
     }
 
@@ -71,7 +71,7 @@ public class StatusPoints {
      * Returns the attack status point of this structure.
      * @return Attack
      */
-    public final int getAttack() {
+    public int getAttack() {
         return this.attack;
     }
 
@@ -79,7 +79,7 @@ public class StatusPoints {
      * Returns the defence status point of this structure.
      * @return Defence
      */
-    public final int getDefence() {
+    public int getDefence() {
         return this.defence;
     }
 
@@ -87,7 +87,7 @@ public class StatusPoints {
      * Returns the speed status point of this structure.
      * @return Speed
      */
-    public final int getSpeed() {
+    public int getSpeed() {
         return this.speed;
     }
 }
