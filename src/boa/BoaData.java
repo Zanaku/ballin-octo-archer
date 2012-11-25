@@ -2,14 +2,14 @@ package boa;
 
 import boa.domain.Player;
 
-public class BoaData {
+public final class BoaData {
     private Player player;
 
-    public final void setPlayer(final Player player) {
+    public void setPlayer(final Player player) {
         this.player = player;
     }
 
-    public final Player getPlayer() {
+    public Player getPlayer() {
         return this.player;
     }
 }

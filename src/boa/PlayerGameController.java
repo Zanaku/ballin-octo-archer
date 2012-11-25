@@ -1,5 +1,8 @@
 package boa;
 
+import boa.engine.Menu;
+import boa.engine.MenuItem;
+
 public class PlayerGameController extends BoaGameController {
     public PlayerGameController(final BoaGame game, final BoaData boaData) {
         super(game, boaData);
@@ -7,8 +10,31 @@ public class PlayerGameController extends BoaGameController {
 
     @Override
     public final void start() {
-        System.out.println("Video games");
+        Menu startMenu = new Menu();
+        startMenu.addItem(new MenuItem() {
+            @Override
+            public void trigger() {
+                System.out.println("Test");
+            }
 
-        this.getGame().switchState(BoaGame.State.FIGHT);
+            @Override
+            public String getText() {
+                return "Test";
+            }
+        });
+
+        startMenu.addItem(new MenuItem() {
+            @Override
+            public void trigger() {
+                System.out.println("Test 2");
+            }
+
+            @Override
+            public String getText() {
+                return "Test 2";
+            }
+        });
+
+        startMenu.show();
     }
 }
