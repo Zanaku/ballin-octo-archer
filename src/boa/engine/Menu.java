@@ -53,9 +53,9 @@ public final class Menu {
     private int getChoiceIndex() {
         // Ask for a choice until a valid one has been made.
         int choiceIndex = -1;
-        do {
+        while (choiceIndex < 0 || choiceIndex > this.items.size() - 1) {
             choiceIndex = CommandLine.getIntResponse("Select a menu item") - 1;
-        } while (choiceIndex < 0 || choiceIndex > this.items.size() - 1);
+        }
 
         return choiceIndex;
     }

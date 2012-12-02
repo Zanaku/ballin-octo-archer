@@ -1,5 +1,6 @@
 package boa.engine;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public final class CommandLine {
@@ -9,13 +10,25 @@ public final class CommandLine {
 
     public static String getStringResponse(final String message) {
         System.out.print(String.format("[%s]: ", message));
+        String response = s.next();
 
-        return CommandLine.s.next();
+        System.out.println();
+        return response;
     }
 
     public static int getIntResponse(final String message) {
-        System.out.print(String.format("[%s]: ", message));
+        // Loop until an integer response is given.
+        Integer response = null;
+        while (response == null) {
+            try {
+                System.out.print(String.format("[%s]: ", message));
+                response = s.nextInt();
+            } catch (InputMismatchException e) {
+                s.next();
+            }
+        }
 
-        return CommandLine.s.nextInt();
+        System.out.println();
+        return response.intValue();
     }
 }
