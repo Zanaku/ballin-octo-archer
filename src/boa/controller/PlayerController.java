@@ -1,8 +1,9 @@
-package boa;
+package boa.controller;
 
+import boa.Game;
 import boa.domain.Player;
 import boa.menu.PlayerMenu;
-import boa.utils.CommandLine;
+import boa.util.CommandLine;
 
 public class PlayerController extends Controller {
     public PlayerController(final Game game) {

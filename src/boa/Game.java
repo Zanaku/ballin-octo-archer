@@ -1,5 +1,7 @@
 package boa;
 
+import boa.controller.PlayerController;
+
 public class Game {
     private GameState state;
     private PlayerController playerController;

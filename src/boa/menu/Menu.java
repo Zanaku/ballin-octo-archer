@@ -3,7 +3,7 @@ package boa.menu;
 import java.util.LinkedList;
 import java.util.List;
 
-import boa.utils.CommandLine;
+import boa.util.CommandLine;
 
 /**
  * A command-line based menu. Classes implementing the MenuItem interface will

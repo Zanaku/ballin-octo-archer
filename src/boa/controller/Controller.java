@@ -1,4 +1,7 @@
-package boa;
+package boa.controller;
+
+import boa.Game;
+import boa.GameState;
 
 public abstract class Controller {
     private Game game;

@@ -1,4 +1,4 @@
-package boa.utils;
+package boa.util;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
