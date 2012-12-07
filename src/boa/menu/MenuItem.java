@@ -1,4 +1,4 @@
-package boa.engine;
+package boa.menu;
 
 /**
  * A menu item used in the Menu class.

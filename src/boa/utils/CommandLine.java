@@ -1,4 +1,4 @@
-package boa.engine;
+package boa.utils;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -25,10 +25,11 @@ public final class CommandLine {
                 response = s.nextInt();
             } catch (InputMismatchException e) {
                 s.next();
+            } finally {
+                System.out.println();
             }
         }
 
-        System.out.println();
         return response.intValue();
     }
 }

@@ -1,13 +1,15 @@
-package boa.engine;
+package boa.menu;
 
 import java.util.LinkedList;
 import java.util.List;
+
+import boa.utils.CommandLine;
 
 /**
  * A command-line based menu. Classes implementing the MenuItem interface will
  * receive a callback if the item is selected.
  */
-public final class Menu {
+public class Menu {
     private List<MenuItem> items;
 
     /**
@@ -21,7 +23,7 @@ public final class Menu {
      * Adds an item to this menu.
      * @param item Item to be added
      */
-    public void addItem(final MenuItem item) {
+    public final void addItem(final MenuItem item) {
         this.items.add(item);
     }
 
@@ -29,7 +31,7 @@ public final class Menu {
      * Displays the list of choices available in this menu, asking the user for
      * a choice and then triggering that menu item's method.
      */
-    public void show() {
+    public final void show() {
         this.printMenuItems();
         items.get(this.getChoiceIndex()).trigger();
     }

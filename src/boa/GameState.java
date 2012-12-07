@@ -2,7 +2,7 @@ package boa;
 
 import boa.domain.Player;
 
-public final class BoaData {
+public final class GameState {
     private Player player;
 
     public void setPlayer(final Player player) {
