@@ -11,14 +11,14 @@ public class PlayerController extends Controller {
     }
 
     public final void start() {
-        new PlayerMenu(this.getGame()).show();
+        this.getGame().setNextMenu(new PlayerMenu(this.getGame()));
     }
 
     public final void createNewCharacter() {
         String name = CommandLine.getStringResponse("Name?");
         this.getGameState().setPlayer(new Player(name));
 
-        new PlayerMenu(this.getGame()).show();
+        this.getGame().setNextMenu(new PlayerMenu(this.getGame()));
     }
 
     public final void showInfo() {
@@ -30,6 +30,6 @@ public class PlayerController extends Controller {
                 .getAttack(), player.getStatusPoints().getDefence(), player
                 .getStatusPoints().getSpeed()));
 
-        new PlayerMenu(this.getGame()).show();
+        this.getGame().setNextMenu(new PlayerMenu(this.getGame()));
     }
 }
