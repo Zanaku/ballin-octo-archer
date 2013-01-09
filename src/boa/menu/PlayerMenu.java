@@ -2,7 +2,7 @@ package boa.menu;
 
 import boa.Game;
 
-public class PlayerMenu extends Menu {
+public final class PlayerMenu extends Menu {
     public PlayerMenu(final Game game) {
         super();
 
@@ -21,7 +21,7 @@ public class PlayerMenu extends Menu {
                 }
             });
         } else {
-            // Show the show stats option as the player has a character.
+            // Show the show status option as the player has a character.
             this.addItem(new MenuItem() {
                 @Override
                 public void trigger() {
@@ -33,6 +33,20 @@ public class PlayerMenu extends Menu {
                     return "Show Info";
                 }
             });
+
+            // Return to the start menu
+            this.addItem(new MenuItem() {
+                @Override
+                public void trigger() {
+                    game.setNextMenu(new StartMenu(game));
+                }
+
+                @Override
+                public String getText() {
+                    return "Go Back";
+                }
+            });
         }
+
     }
 }

@@ -9,7 +9,7 @@ import boa.util.CommandLine;
  * A command-line based menu. Classes implementing the MenuItem interface will
  * receive a callback if the item is selected.
  */
-public class Menu {
+public abstract class Menu {
     private List<MenuItem> items;
 
     /**
@@ -42,7 +42,7 @@ public class Menu {
     private void printMenuItems() {
         for (int i = 0; i < this.items.size(); i++) {
             MenuItem item = items.get(i);
-            System.out.println(String.format("<%d> %s", i + 1, item.getText()));
+            System.out.println(String.format("\t<%d> %s", i + 1, item.getText()));
         }
         System.out.println();
     }
@@ -56,7 +56,7 @@ public class Menu {
         // Ask for a choice until a valid one has been made.
         int choiceIndex = -1;
         while (choiceIndex < 0 || choiceIndex > this.items.size() - 1) {
-            choiceIndex = CommandLine.getIntResponse("Select a menu item") - 1;
+            choiceIndex = CommandLine.getIntResponse("Menu") - 1;
         }
 
         return choiceIndex;

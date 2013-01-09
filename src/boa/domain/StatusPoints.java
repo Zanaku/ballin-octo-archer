@@ -26,20 +26,15 @@ public final class StatusPoints {
      * @param defence Defence. Must be a positive non-zero integer.
      * @param speed Speed. Must be a positive non-zero integer.
      */
-    public StatusPoints(final int health, final int attack, final int defence,
-            final int speed) {
+    public StatusPoints(final int health, final int attack, final int defence, final int speed) {
         if (health <= 0) {
-            throw new IllegalArgumentException(
-                    "Health must be a positive non-zero number.");
+            throw new IllegalArgumentException("Health must be a positive non-zero number.");
         } else if (attack <= 0) {
-            throw new IllegalArgumentException(
-                    "Attack must be a positive non-zero number.");
+            throw new IllegalArgumentException("Attack must be a positive non-zero number.");
         } else if (defence <= 0) {
-            throw new IllegalArgumentException(
-                    "Defence must be a positive non-zero number.");
+            throw new IllegalArgumentException("Defence must be a positive non-zero number.");
         } else if (speed <= 0) {
-            throw new IllegalArgumentException(
-                    "Speed must be a positive non-zero number.");
+            throw new IllegalArgumentException("Speed must be a positive non-zero number.");
         }
 
         this.health = health;

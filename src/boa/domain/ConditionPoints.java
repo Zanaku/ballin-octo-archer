@@ -23,8 +23,7 @@ public final class ConditionPoints {
      */
     public ConditionPoints(final int maximumHealth) {
         if (maximumHealth <= 0) {
-            throw new IllegalArgumentException(
-                    "Maximum health must be a positive non-zero number.");
+            throw new IllegalArgumentException("Maximum health must be a positive non-zero number.");
         }
 
         this.maximumHealth = maximumHealth;
@@ -41,11 +40,9 @@ public final class ConditionPoints {
      */
     public ConditionPoints(final int maximumHealth, final int health) {
         if (maximumHealth <= 0) {
-            throw new IllegalArgumentException(
-                    "Maximum health must be a positive non-zero number.");
+            throw new IllegalArgumentException("Maximum health must be a positive non-zero number.");
         } else if (health < 0) {
-            throw new IllegalArgumentException(
-                    "Health must be a positive number.");
+            throw new IllegalArgumentException("Health must be a positive number.");
         }
 
         this.maximumHealth = maximumHealth;

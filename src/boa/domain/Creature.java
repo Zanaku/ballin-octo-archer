@@ -16,8 +16,7 @@ public class Creature {
      */
     public Creature(final String name, final int level) {
         if (level <= 0) {
-            throw new IllegalArgumentException(
-                    "Level must be non-zero and positive.");
+            throw new IllegalArgumentException("Level must be non-zero and positive.");
         }
 
         this.name = name;
@@ -50,8 +49,7 @@ public class Creature {
      */
     protected final void setLevel(final int level) {
         if (level <= 0) {
-            throw new IllegalArgumentException(
-                    "Level must be non-zero and positive.");
+            throw new IllegalArgumentException("Level must be non-zero and positive.");
         }
 
         this.level = level;
@@ -78,14 +76,17 @@ public class Creature {
      * @return Creature's condition points
      */
     public final ConditionPoints getConditionPoints() {
-        return new ConditionPoints(this.conditionPoints);
+        return this.conditionPoints;
     }
 
     /**
      * Fully restores the condition points of this creature.
      */
     public final void resetConditionPoints() {
-        this.conditionPoints = new ConditionPoints(this.getStatusPoints()
-                .getHealth());
+        this.conditionPoints = new ConditionPoints(this.getStatusPoints().getHealth() * 2);
+    }
+
+    public final void takeDamage(final int amount) {
+        this.conditionPoints.decreaseHealth(amount);
     }
 }
