@@ -4,10 +4,10 @@ package boa.domain;
  * A structure representing the status points of some creature entity.
  */
 public final class StatusPoints {
-    private int health;
-    private int attack;
-    private int defence;
-    private int speed;
+    private final int health;
+    private final int attack;
+    private final int defence;
+    private final int speed;
 
     /**
      * Creates this structure with all points set to 1.

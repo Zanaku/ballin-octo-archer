@@ -6,18 +6,33 @@ import boa.domain.StatusPoints;
 import boa.menu.PlayerMenu;
 import boa.util.CommandLine;
 
+/**
+ * Controller for performing all player-related logic, such as creating a new
+ * character or viewing the status points of the player.
+ */
 public final class PlayerController extends Controller {
     public static final int STARTING_POINTS = 12;
 
+    /**
+     * Constructor.
+     * @param game Game associated with this controller
+     */
     public PlayerController(final Game game) {
         super(game);
     }
 
+    /**
+     * Starts this controller. Displays the main menu for this controller.
+     */
     @Override
     public void start() {
         this.getGame().setNextMenu(new PlayerMenu(this.getGame()));
     }
 
+    /**
+     * Creates a new character, setting up the game state involved. This will
+     * also request status points from the player and that sort of thing.
+     */
     public void createNewCharacter() {
         String name = CommandLine.getStringResponse("What is your NAME?");
         Player player = new Player(name);
@@ -68,6 +83,9 @@ public final class PlayerController extends Controller {
         return new StatusPoints(health, attack, defence, speed);
     }
 
+    /**
+     * Prints the status of the player.
+     */
     public void showInfo() {
         Player player = this.getGameState().getPlayer();
         CommandLine.printlnIndented(String.format("Name: %s\n" + "Level: %d\n" + "\n"

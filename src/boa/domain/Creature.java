@@ -4,10 +4,11 @@ package boa.domain;
  * Represents a named creature with a level, status points and condition points.
  */
 public class Creature {
-    private String name;
+    private final String name;
     private int level;
     private StatusPoints statusPoints;
     private ConditionPoints conditionPoints;
+    private final Inventory inventory;
 
     /**
      * Creates this creature with the specified name and level.
@@ -23,6 +24,7 @@ public class Creature {
         this.level = level;
         this.statusPoints = new StatusPoints();
         this.conditionPoints = new ConditionPoints();
+        this.inventory = new Inventory();
 
         this.resetConditionPoints();
     }
@@ -86,7 +88,19 @@ public class Creature {
         this.conditionPoints = new ConditionPoints(this.getStatusPoints().getHealth() * 2);
     }
 
+    /**
+     * Removes the amount of damage from this creature's health
+     * @param amount Amount of damage to be done
+     */
     public final void takeDamage(final int amount) {
         this.conditionPoints.decreaseHealth(amount);
+    }
+
+    /**
+     * Returns this creature's inventory.
+     * @return Inventory
+     */
+    public final Inventory getInventory() {
+        return this.inventory;
     }
 }

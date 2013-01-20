@@ -5,7 +5,7 @@ package boa.domain;
  * creature.
  */
 public final class ConditionPoints {
-    private int maximumHealth;
+    private final int maximumHealth;
     private int health;
 
     /**

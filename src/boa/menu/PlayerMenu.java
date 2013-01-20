@@ -34,6 +34,19 @@ public final class PlayerMenu extends Menu {
                 }
             });
 
+            // Show the inventory menu
+            this.addItem(new MenuItem() {
+                @Override
+                public void trigger() {
+                    game.getPlayerInventoryController().start();
+                }
+
+                @Override
+                public String getText() {
+                    return "Inventory";
+                }
+            });
+
             // Return to the start menu
             this.addItem(new MenuItem() {
                 @Override
