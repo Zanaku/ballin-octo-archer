@@ -20,9 +20,10 @@ public final class Inventory {
         this.equippedItems = new EnumMap<>(ItemType.class);
         this.storedItems = new LinkedList<>();
 
-        this.storedItems.add(new Item("Test Body", ItemType.BODY));
-        this.storedItems.add(new Item("Test Pants", ItemType.PANTS));
-        this.storedItems.add(new Item("Test Weapon", ItemType.WEAPON));
+        this.storedItems.add(new Item("Test Body", ItemType.BODY, new StatusPoints(3, 0, 6, 2)));
+        this.storedItems.add(new Item("Test Pants", ItemType.PANTS, new StatusPoints(3, 2, 2, 4)));
+        this.storedItems
+                .add(new Item("Test Weapon", ItemType.WEAPON, new StatusPoints(1, 7, 4, 3)));
     }
 
     /**

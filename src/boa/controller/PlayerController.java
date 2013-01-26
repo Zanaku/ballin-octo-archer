@@ -88,12 +88,18 @@ public final class PlayerController extends Controller {
      */
     public void showInfo() {
         Player player = this.getGameState().getPlayer();
-        CommandLine.printlnIndented(String.format("Name: %s\n" + "Level: %d\n" + "\n"
-                + "Health: %d\n" + "Attack: %d\n" + "Defence: %d\n" + "Speed: %d",
-                player.getName(), player
-                .getLevel(), player.getStatusPoints().getHealth(), player.getStatusPoints()
-                .getAttack(), player.getStatusPoints().getDefence(), player.getStatusPoints()
-                .getSpeed()));
+        CommandLine
+                .printlnIndented(String.format("Name: %s\n" + "Level: %d\n" + "\n"
+                        + "Base Health: %d\n" + "Base Attack: %d\n" + "Base Defence: %d\n"
+                        + "Base Speed: %d", player.getName(), player.getLevel(), player
+                        .getBaseStatusPoints().getHealth(), player.getBaseStatusPoints()
+                        .getAttack(), player.getBaseStatusPoints().getDefence(), player
+                        .getBaseStatusPoints().getSpeed()));
+
+        CommandLine.printlnIndented(String.format("Total Health: %d\n" + "Total Attack: %d\n"
+                + "Total Defence: %d\n" + "Total Speed: %d", player.getTotalStatusPoints()
+                .getHealth(), player.getTotalStatusPoints().getAttack(), player
+                .getTotalStatusPoints().getDefence(), player.getTotalStatusPoints().getSpeed()));
 
         this.getGame().setNextMenu(new PlayerMenu(this.getGame()));
     }

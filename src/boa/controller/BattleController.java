@@ -18,7 +18,7 @@ public final class BattleController extends Controller {
         Player player = this.getGameState().getPlayer();
 
         Creature creature = new Creature("Zombie", player.getLevel());
-        creature.setStatusPoints(new StatusPoints(player.getStatusPoints()));
+        creature.setStatusPoints(new StatusPoints(player.getBaseStatusPoints()));
 
         player.resetConditionPoints();
         creature.resetConditionPoints();
@@ -37,7 +37,7 @@ public final class BattleController extends Controller {
                 defender = player;
             }
 
-            int attack = r.nextInt(attacker.getStatusPoints().getAttack() + 1);
+            int attack = r.nextInt(attacker.getBaseStatusPoints().getAttack() + 1);
             if (attack > 0) {
                 defender.takeDamage(attack);
 

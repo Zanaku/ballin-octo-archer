@@ -41,5 +41,17 @@ public class PlayerInventoryMenu extends Menu {
                 return "Equip Stored Item";
             }
         });
+        
+        this.addItem(new MenuItem() {
+            @Override
+            public void trigger() {
+                game.getPlayerController().start();
+            }
+
+            @Override
+            public String getText() {
+                return "Go Back";
+            }
+        });
     }
 }

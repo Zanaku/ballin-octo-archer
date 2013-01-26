@@ -10,31 +10,31 @@ public final class StatusPoints {
     private final int speed;
 
     /**
-     * Creates this structure with all points set to 1.
+     * Creates this structure with all points set to 0.
      */
     public StatusPoints() {
-        this.health = 1;
-        this.attack = 1;
-        this.defence = 1;
-        this.speed = 1;
+        this.health = 0;
+        this.attack = 0;
+        this.defence = 0;
+        this.speed = 0;
     }
 
     /**
      * Creates this structure using the specified values.
-     * @param health Health. Must be a positive non-zero integer.
-     * @param attack Attack. Must be a positive non-zero integer.
-     * @param defence Defence. Must be a positive non-zero integer.
-     * @param speed Speed. Must be a positive non-zero integer.
+     * @param health Health. Must be a positive integer.
+     * @param attack Attack. Must be a positive integer.
+     * @param defence Defence. Must be a positive integer.
+     * @param speed Speed. Must be a positive integer.
      */
     public StatusPoints(final int health, final int attack, final int defence, final int speed) {
-        if (health <= 0) {
-            throw new IllegalArgumentException("Health must be a positive non-zero number.");
-        } else if (attack <= 0) {
-            throw new IllegalArgumentException("Attack must be a positive non-zero number.");
-        } else if (defence <= 0) {
-            throw new IllegalArgumentException("Defence must be a positive non-zero number.");
-        } else if (speed <= 0) {
-            throw new IllegalArgumentException("Speed must be a positive non-zero number.");
+        if (health < 0) {
+            throw new IllegalArgumentException("Health must be a positive number.");
+        } else if (attack < 0) {
+            throw new IllegalArgumentException("Attack must be a positive number.");
+        } else if (defence < 0) {
+            throw new IllegalArgumentException("Defence must be a positive number.");
+        } else if (speed < 0) {
+            throw new IllegalArgumentException("Speed must be a positive number.");
         }
 
         this.health = health;

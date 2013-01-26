@@ -58,11 +58,35 @@ public class Creature {
     }
 
     /**
-     * Returns a copy of this creature's status points.
-     * @return Creature's status points
+     * Returns a copy of this creature's base status points (i.e, not including
+     * bonuses from inventory)
+     * @return This creature's status points
      */
-    public final StatusPoints getStatusPoints() {
+    public final StatusPoints getBaseStatusPoints() {
         return new StatusPoints(this.statusPoints);
+    }
+
+    /**
+     * Calculates the total status points this creature has (i.e, base status
+     * points + inventory status points)
+     * @return This creature's total status points
+     */
+    public final StatusPoints getTotalStatusPoints() {
+        int health = this.getBaseStatusPoints().getHealth();
+        int attack = this.getBaseStatusPoints().getAttack();
+        int defence = this.getBaseStatusPoints().getDefence();
+        int speed = this.getBaseStatusPoints().getSpeed();
+
+        for (Item item : this.inventory.getEquippedItems().values()) {
+            StatusPoints sp = item.getBonusStatusPoints();
+
+            health += sp.getHealth();
+            attack += sp.getAttack();
+            defence += sp.getDefence();
+            speed += sp.getSpeed();
+        }
+
+        return new StatusPoints(health, attack, defence, speed);
     }
 
     /**
@@ -71,6 +95,7 @@ public class Creature {
      */
     public final void setStatusPoints(final StatusPoints s) {
         this.statusPoints = new StatusPoints(s);
+        this.resetConditionPoints();
     }
 
     /**
@@ -85,7 +110,7 @@ public class Creature {
      * Fully restores the condition points of this creature.
      */
     public final void resetConditionPoints() {
-        this.conditionPoints = new ConditionPoints(this.getStatusPoints().getHealth() * 2);
+        this.conditionPoints = new ConditionPoints(this.getBaseStatusPoints().getHealth() * 2);
     }
 
     /**
